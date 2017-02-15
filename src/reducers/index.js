@@ -4,9 +4,9 @@ import { reducer as formReducer } from 'redux-form';
 import DrinkReducer from './selected-drink';
 
 const rootReducer = combineReducers({
-  drink: DrinkReducer,
-  form: formReducer,
+  stores: DrinkReducer,
   routing: routerReducer,
+  form: formReducer,
 });
 
 export default rootReducer;
