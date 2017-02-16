@@ -16,7 +16,9 @@ const StoreMap = withGoogleMap((props) => (
         onClick={() => props.onMarkerClick(marker)}
       >
         {marker.showInfo ?
-        <InfoWindow>
+        <InfoWindow
+          onCloseClick={() => props.onMarkerClose(marker)}
+        >
           <div>{marker.name}</div>
         </InfoWindow> : ''
         }

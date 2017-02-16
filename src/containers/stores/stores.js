@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { getStores, setStore, handleMapMounted, handleBoundsChanged, handleMarkerClick } from '../../actions/stores';
+import { getStores, setStore, handleMapMounted, handleBoundsChanged, handleMarkerClick, handleMarkerClose } from '../../actions/stores';
 import {connect} from 'react-redux';
 import StoreMap from '../../components/storemap/storemap.js';
 
@@ -13,6 +13,7 @@ const mapDispatchToProps = {
   handleBoundsChanged,
   handleMapMounted,
   handleMarkerClick,
+  handleMarkerClose,
 };
 
 class Stores extends Component {
@@ -39,6 +40,7 @@ class Stores extends Component {
           stores={this.props.stores.stores}
           onMapMounted={this.props.handleMapMounted}
           onMarkerClick={this.props.handleMarkerClick}
+          onMarkerClose={this.props.handleMarkerClose}
         />
       </div>
     );
@@ -58,6 +60,7 @@ Stores.propTypes = {
   handleBoundsChanged: React.PropTypes.func,
   handleMapMounted: React.PropTypes.func,
   handleMarkerClick: React.PropTypes.func,
+  handleMarkerClose: React.PropTypes.func,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Stores);

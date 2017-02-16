@@ -19,25 +19,15 @@ export default function(state = INITIAL_STATE, {type, payload}) {
   case ACTION_TYPES.handleMapMounted:
     return {...state, ...{map: payload.map}};
   case ACTION_TYPES.handleMarkerClick:
-    console.log('marker click');
-    state.stores.map(store => (
+    const newstores = state.stores.map(store => (
       store.id === payload.marker.id ? Object.assign({}, store, {showInfo: true}) : store
     ));
-    // console.log(state.stores);
-    // console.log('MARKER', payload.marker);
-    // return state.stores.map(store => {
-    //   if (store.id === payload.marker.id) {
-    //     store.showInfo = true;
-    //     console.log('showInfo', store.showInfo);
-    //     Object.assign({}, store, {showInfo: true});
-    //     console.log('showInfo', store.showInfo);
-    //   }
-    //   // store.id === payload.marker.id ? Object.assign({}, store, {showInfo: true}) : store
-    // });
-    // console.log(state.stores);
-    // return {...state, ...{map: payload.map}};
-    // state.stores.map(store => ());
-    return state;
+    return {...state, ...{stores: newstores}};
+  case ACTION_TYPES.handleMarkerClose:
+    const newstores2 = state.stores.map(store => (
+      store.id === payload.marker.id ? Object.assign({}, store, {showInfo: false}) : store
+    ));
+    return {...state, ...{stores: newstores2}};
   default:
     return state;
   }
