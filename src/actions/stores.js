@@ -7,6 +7,7 @@ export const ACTION_TYPES = {
   setStore: 'SET_STORE',
   handleBoundsChanged: 'BOUNDS_CHANGED',
   handleMapMounted: 'MAP_MOUNTED',
+  handleMarkerClick: 'MARKER_CLICKED',
 };
 
 export function setStore() {
@@ -23,6 +24,15 @@ export function handleMapMounted(map) {
     type: ACTION_TYPES.handleMapMounted,
     payload: {
       map: map,
+    },
+  };
+}
+
+export function handleMarkerClick(marker) {
+  return {
+    type: ACTION_TYPES.handleMarkerClick,
+    payload: {
+      marker: marker,
     },
   };
 }

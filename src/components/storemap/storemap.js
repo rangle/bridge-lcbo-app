@@ -1,5 +1,5 @@
 import React from 'react';
-import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
+import { withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps';
 
 const StoreMap = withGoogleMap((props) => (
   <GoogleMap
@@ -13,7 +13,14 @@ const StoreMap = withGoogleMap((props) => (
         key={index}
         position={{lat: marker.latitude, lng: marker.longitude}}
         defaultAnimation={2}
-      />
+        onClick={() => props.onMarkerClick(marker)}
+      >
+        {marker.showInfo ?
+        <InfoWindow>
+          <div>{marker.name}</div>
+        </InfoWindow> : ''
+        }
+      </Marker>
     ))}
   </GoogleMap>
 ));
