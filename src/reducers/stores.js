@@ -13,7 +13,6 @@ export default function(state = INITIAL_STATE, {type, payload}) {
   case ACTION_TYPES.setStore:
     return {...state, ...{test: payload.test}};
   case ACTION_TYPES.getStores:
-    console.log('GET STORES at');
     return {...state, ...{stores: payload.stores}};
   case ACTION_TYPES.handleBoundsChanged:
     console.log('LAT', payload.lat);
