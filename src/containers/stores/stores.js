@@ -29,9 +29,6 @@ class Stores extends Component {
     return (
       <div>
         <h1>Stores</h1>
-        <div>
-          {console.log('STORES', this.props.stores.stores)}
-        </div>
         <StoreMap
           containerElement={<div style={{ height: '500px', width: '500px' }} /> }
           mapElement={<div style={{ height: '500px', width: '500px' }} />}

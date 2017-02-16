@@ -33,14 +33,16 @@ export function handleBoundsChanged() {
     dispatch({
       type: ACTION_TYPES.handleBoundsChanged,
       payload: {
-        lat: state.stores.map.getBounds().b.f,
-        lon: state.stores.map.getBounds().f.f,
+        lat: state.stores.map.getCenter().lat(),
+        lon: state.stores.map.getCenter().lng(),
       },
     });
+    getStores(state.stores.map.getCenter().lat(), state.stores.map.getCenter().lng() );
   };
 }
 
 export function getStores(lat, lon) {
+  console.log('GET SORES');
   const queryString = buildQueryString({
     access_key: LCBO_API_KEY,
     lat: lat,
@@ -48,15 +50,17 @@ export function getStores(lat, lon) {
     where: 'has_wheelchair_accessability',
   });
   return function(dispatch) {
+    debugger;
     stores: $.get(`${LCBO_API_BASE_URL}/stores?${queryString}`).then(
       response => {
+        console.log(response.result);
         dispatch({
           type: ACTION_TYPES.getStores,
           payload: {
             stores: response.result,
           },
         });
-      }
+      }, (error) => {console.log(error);}
     );
   };
 }
