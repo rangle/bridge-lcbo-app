@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import { reducer as formReducer } from 'redux-form';
-import DrinkReducer from './selected-drink';
+import StoreReducer from './stores';
 
 const rootReducer = combineReducers({
-  stores: DrinkReducer,
+  stores: StoreReducer,
   routing: routerReducer,
   form: formReducer,
 });
