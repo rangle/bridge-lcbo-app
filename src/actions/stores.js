@@ -68,10 +68,10 @@ export function getStores(lat, lon) {
     lon: lon,
     where: 'has_wheelchair_accessability',
   });
+
   return function(dispatch) {
     stores: $.get(`${LCBO_API_BASE_URL}/stores?${queryString}`).then(
       response => {
-        console.log('GET STORES');
         dispatch({
           type: ACTION_TYPES.getStores,
           payload: {
