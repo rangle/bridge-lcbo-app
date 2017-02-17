@@ -8,10 +8,10 @@ class App extends Component {
     return (
       <div className="App">
       	<Router history={browserHistory}>
-      		<Route path='/' component={Home}> 
-      			<Route path='store' component={Store}/>
-      		</Route> 
-      	</Router> 
+      		<Route path="/" component={Home}>
+      			<Route path="store" component={Store}/>
+      		</Route>
+      	</Router>
       </div>
     );
   }
