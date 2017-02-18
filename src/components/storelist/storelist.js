@@ -1,13 +1,22 @@
 import React from 'react';
 
-export const StoreList = (props) => (<div>
+
+const StoreList = ({stores}) => (<div>
   <h2>Stores near you</h2>
-    {props.stores.map(store =>
-      <ul>
-      <li>address:{store.address_line_1} {store.address_line_2}</li>
-      <li>distance:{store.distance_in_meters} km</li>
-      <li>telephone:{store.telephone}</li>
+    <ul>
+      {stores.map(store =>
+        <li>
+          <p>address: {store.address_line_1} {store.address_line_2}</p>
+          <p>distance: {store.distance_in_meters} km</p>
+          <p>telephone: {store.telephone}</p>
+        </li>
+      )}
     </ul>
-    )}
 
 </div>);
+
+StoreList.propTypes = {
+  stores: React.PropTypes.array,
+};
+
+export default StoreList;
