@@ -31,18 +31,20 @@ class Stores extends Component {
   render() {
     return (
       <div>
-        <h1>Stores</h1>
-        <StoreMap
-          containerElement={<div style={{ height: '500px', width: '500px' }} /> }
-          mapElement={<div style={{ height: '500px', width: '500px' }} />}
-          onBoundsChanged={this.props.handleBoundsChanged}
-          lat={this.props.stores.lat}
-          lon={this.props.stores.lon}
-          stores={this.props.stores.stores}
-          onMapMounted={this.props.handleMapMounted}
-          onMarkerClick={this.props.handleMarkerClick}
-          onMarkerClose={this.props.handleMarkerClose}
-        />
+        <div id="mapWrapper" style={{float: 'left'}}>
+          <h1>Stores</h1>
+          <StoreMap
+            containerElement={<div style={{ height: '500px', width: '500px' }} /> }
+            mapElement={<div style={{ height: '500px', width: '500px' }} />}
+            onBoundsChanged={this.props.handleBoundsChanged}
+            lat={this.props.stores.lat}
+            lon={this.props.stores.lon}
+            stores={this.props.stores.stores}
+            onMapMounted={this.props.handleMapMounted}
+            onMarkerClick={this.props.handleMarkerClick}
+            onMarkerClose={this.props.handleMarkerClose}
+          />
+        </div>
         <StoreList
           stores={this.props.stores.stores}
         />
