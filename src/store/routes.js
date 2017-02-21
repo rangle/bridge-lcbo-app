@@ -1,6 +1,11 @@
 import React from 'react';
 import { Route } from 'react-router';
-import Home from '../containers/home';
+import App from '../app/app.js';
+import Stores from '../containers/stores/stores';
+
 export default (
-  <Route path="/" component={ Home }/>
+  <div>
+    <Route path="/" component={ App }/>
+    <Route path="/stores" component={ Stores }/>
+  </div>
 );
