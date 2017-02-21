@@ -11,7 +11,7 @@ const INITIAL_STATE = {
 export default function(state = INITIAL_STATE, {type, payload}) {
   switch (type) {
   case ACTION_TYPES.setStore:
-    return {...state, ...{test: payload.test}};
+    return {...state, ...{ test: payload.test}};
   case ACTION_TYPES.getStores:
     return {...state, ...{stores: payload.stores}};
   case ACTION_TYPES.handleBoundsChanged:
