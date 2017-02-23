@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import { LCBO_API_BASE_URL, LCBO_API_KEY } from '../config/api';
 import { buildQueryString } from '../api/helpers';
+// import { storelist } from '../storelist/storelist';
 
 export const ACTION_TYPES = {
   getStores: 'GET_STORES',
@@ -9,6 +10,7 @@ export const ACTION_TYPES = {
   handleMapMounted: 'MAP_MOUNTED',
   handleMarkerClick: 'MARKER_CLICKED',
   handleMarkerClose: 'MARKER_CLOSED',
+  handleMouseOver: 'MARKER_MOUSEOVER',
 };
 
 export function setStore() {
@@ -80,5 +82,18 @@ export function getStores(lat, lon) {
         });
       },
     );
+  };
+}
+// adding hover action on marker
+export function handleMouseOver(marker) {
+  return function(dispatch) {
+    hoveredStore: marker.name;
+    dispatch({
+      type: ACTION_TYPES.handleMouseOver,
+      payload: {
+        marker: marker,
+        // store: store,
+      },
+    });
   };
 }

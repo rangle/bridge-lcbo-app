@@ -1,4 +1,5 @@
 import {ACTION_TYPES} from '../actions/stores';
+import $ from 'jquery';
 
 const INITIAL_STATE = {
   name: 'Basil Haydens',
@@ -6,6 +7,7 @@ const INITIAL_STATE = {
   lon: -79.379,
   test: 'pfff',
   stores: [],
+  hoveredStore: '',
 };
 
 export default function(state = INITIAL_STATE, {type, payload}) {
@@ -30,5 +32,12 @@ export default function(state = INITIAL_STATE, {type, payload}) {
     return {...state, ...{stores: newstores2}};
   default:
     return state;
+// adding hover reducer on google map marker
+  case ACTION_TYPES.handleMouseOver:
+    const markerHover = map.addListner( 'mouseover', function() {
+      $( '.storeInfo' ).css( 'background-color', 'blue' );
+    });
+    return {...state, ...{maker: markerHover}};
+
   }
 }

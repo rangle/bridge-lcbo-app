@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import { getStores, setStore, handleMapMounted, handleBoundsChanged, handleMarkerClick, handleMarkerClose } from '../../actions/stores';
+import { getStores, setStore, handleMapMounted, handleBoundsChanged, handleMarkerClick, handleMarkerClose, handleMouseOver } from '../../actions/stores';
 import {connect} from 'react-redux';
 import StoreMap from '../../components/storemap/storemap.js';
 import StoreList from '../../components/storelist/storelist';
+// import $ from 'jquery';
 
 const mapStateToProps = (state) => ({
   stores: state.stores,
@@ -15,6 +16,7 @@ const mapDispatchToProps = {
   handleMapMounted,
   handleMarkerClick,
   handleMarkerClose,
+  handleMouseOver,
 };
 
 class Stores extends Component {
@@ -43,6 +45,7 @@ class Stores extends Component {
             onMapMounted={this.props.handleMapMounted}
             onMarkerClick={this.props.handleMarkerClick}
             onMarkerClose={this.props.handleMarkerClose}
+            onMouseOver={this.props.handleMouseOver}
           />
         </div>
         <StoreList
@@ -68,7 +71,8 @@ Stores.propTypes = {
   handleMapMounted: React.PropTypes.func,
   handleMarkerClick: React.PropTypes.func,
   handleMarkerClose: React.PropTypes.func,
-
+  handleMarkerHover: React.PropTypes.func,
+  handleMouseOver: React.PropTypes.func,
 
 };
 
