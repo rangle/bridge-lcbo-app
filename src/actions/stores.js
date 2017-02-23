@@ -4,21 +4,11 @@ import { buildQueryString } from '../api/helpers';
 
 export const ACTION_TYPES = {
   getStores: 'GET_STORES',
-  setStore: 'SET_STORE',
   handleBoundsChanged: 'BOUNDS_CHANGED',
   handleMapMounted: 'MAP_MOUNTED',
   handleMarkerClick: 'MARKER_CLICKED',
   handleMarkerClose: 'MARKER_CLOSED',
 };
-
-export function setStore() {
-  return {
-    type: ACTION_TYPES.setStore,
-    payload: {
-      test: 'test',
-    },
-  };
-}
 
 export function handleMapMounted(map) {
   return {
@@ -62,14 +52,14 @@ export function handleBoundsChanged() {
 }
 
 export function getStores(lat, lon) {
+  console.log('Get stores called');
   const queryString = buildQueryString({
     access_key: LCBO_API_KEY,
     lat: lat,
     lon: lon,
     where: 'has_wheelchair_accessability',
   });
-
-  return function(dispatch) {
+  return (dispatch) => {
     stores: $.get(`${LCBO_API_BASE_URL}/stores?${queryString}`).then(
       response => {
         dispatch({
