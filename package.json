@@ -75,6 +75,7 @@
     "karma-spec-reporter": "0.0.26",
     "karma-webpack": "^1.7.0",
     "lodash": "^4.17.4",
+    "material-ui": "^0.17.0",
     "nodemon": "^1.9.2",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
@@ -91,6 +92,7 @@
     "react-router": "^2.4.1",
     "react-router-redux": "^4.0.0",
     "redux": "^3.3.1",
+    "redux-debounced": "^0.3.0",
     "redux-form": "^5.3.2",
     "redux-localstorage": "^0.4.0",
     "redux-logger": "^2.1.4",
@@ -122,5 +124,8 @@
   },
   "bugs": {
     "url": "https://github.com/rangle/rangle-starter/issues"
+  },
+  "devDependencies": {
+    "redux-debounce": "^1.0.1"
   }
 }

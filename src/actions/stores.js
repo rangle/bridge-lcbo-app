@@ -59,7 +59,7 @@ export function getStores(lat, lon) {
     lon: lon,
     where: 'has_wheelchair_accessability',
   });
-  return (dispatch) => {
+  const thunk = (dispatch) => {
     stores: $.get(`${LCBO_API_BASE_URL}/stores?${queryString}`).then(
       response => {
         dispatch({
@@ -71,4 +71,11 @@ export function getStores(lat, lon) {
       },
     );
   };
+  thunk.meta = {
+    debounce: {
+      time: 300,
+      key: 'myAction',
+    },
+  };
+  return thunk;
 }
