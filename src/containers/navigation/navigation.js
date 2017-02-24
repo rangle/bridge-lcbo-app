@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-<<<<<<< HEAD
 import { handleToggle, handleClose, handleChange } from '../../actions/navigation';
 import {connect} from 'react-redux';
 import { Link } from 'react-router';
@@ -70,8 +69,3 @@ Navigation.propTypes = {
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
 
-Home.propTypes = {
-  drink: React.PropTypes.shape({
-    name: React.PropTypes.string,
-  }),
-};

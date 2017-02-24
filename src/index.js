@@ -13,16 +13,12 @@ import configureStore from './store/configure-store';
 import './styles/index.css';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-<<<<<<< HEAD
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 injectTapEventPlugin();
-=======
->>>>>>> debounce repulling stores on map bound changed
 
 const store = configureStore({});
 const history = syncHistoryWithStore(browserHistory, store);
-
 
 if (!__TEST__) {
   ReactDOM.render(
