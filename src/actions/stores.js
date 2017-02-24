@@ -52,7 +52,6 @@ export function handleBoundsChanged() {
 }
 
 export function getStores(lat, lon) {
-  console.log('Get stores called');
   const queryString = buildQueryString({
     access_key: LCBO_API_KEY,
     lat: lat,
