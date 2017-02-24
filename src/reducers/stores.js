@@ -34,10 +34,10 @@ export default function(state = INITIAL_STATE, {type, payload}) {
     return state;
 // adding hover reducer on google map marker
   case ACTION_TYPES.handleMouseOver:
-    const markerHover = map.addListner( 'mouseover', function() {
+    const markerHover = state.stores.map(marker => ( marker.addListener( 'mouseover', function() {
       $( '.storeInfo' ).css( 'background-color', 'blue' );
-    });
-    return {...state, ...{maker: markerHover}};
-
+      })
+    ));
+      return {...state, ...{maker: markerHover}};
   }
 }
