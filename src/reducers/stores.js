@@ -16,6 +16,8 @@ export default function(state = INITIAL_STATE, {type, payload}) {
     return {...state, ...{map: payload.map}};
   case ACTION_TYPES.handleMarkerClick:
     const newstores = state.stores.map(store => (
+      store.showInfo === true ? Object.assign({}, store, {showInfo: false}) : store
+    )).map(store => (
       store.id === payload.marker.id ? Object.assign({}, store, {showInfo: true}) : store
     ));
     return {...state, ...{stores: newstores}};
