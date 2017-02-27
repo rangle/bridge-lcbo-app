@@ -56,6 +56,7 @@ export function getStores(lat, lon) {
     access_key: LCBO_API_KEY,
     lat: lat,
     lon: lon,
+    per_page: 5,
     where: 'has_wheelchair_accessability',
   });
   const thunk = (dispatch) => {

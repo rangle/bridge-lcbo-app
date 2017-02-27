@@ -1,14 +1,11 @@
 @import 'tachyons/src/tachyons';
 @import './variables';
 
-#find-a-store {
-  background-color: black;
+p {
+  line-height: 1.4;
+  margin-bottom: 0;
 }
 
-.store-list {
-  background-color: black;
-}
-
-.store-list h2 {
-  font-size: 1.8rem;
+p:last-of-type {
+  margin-bottom: 10px;
 }

@@ -19,7 +19,11 @@ const StoreMap = withGoogleMap((props) => (
         <InfoWindow
           onCloseClick={() => props.onMarkerClose(marker)}
         >
-          <div>{marker.name}</div>
+          <div>
+            <p style={{fontWeight: 'bold', 'marginBottom': '10px'}}>{marker.name}</p>
+            <p>{marker.address_line_1}</p>
+            <p>{marker.city}, {marker.postal_code}</p>
+          </div>
         </InfoWindow> : ''
         }
       </Marker>
