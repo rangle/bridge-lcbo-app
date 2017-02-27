@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router';
 import { ListGroup, ListGroupItem, Button } from 'react-bootstrap';
 
 const StoreList = ({stores}) => (
@@ -12,7 +12,7 @@ const StoreList = ({stores}) => (
         <p>address: {store.address_line_1} {store.address_line_2}</p>
         <p>distance: {store.distance_in_meters} m</p>
         <p>telephone: {store.telephone}</p>
-        <Button>Store Details</Button>
+        <Button><Link to={`/store/${store.id}`}>Store Details</Link></Button>
       </ListGroupItem>
     )}
   </ListGroup>
