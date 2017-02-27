@@ -12,19 +12,24 @@ import routes from './store/routes';
 import configureStore from './store/configure-store';
 import './styles/index.css';
 
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+injectTapEventPlugin();
+
 const store = configureStore({});
 const history = syncHistoryWithStore(browserHistory, store);
 
 
 if (!__TEST__) {
   ReactDOM.render(
-    <div>
+    <MuiThemeProvider>
       <Provider store={ store }>
         <Router history={ history }>
           { routes }
         </Router>
       </Provider>
-    </div>,
+    </MuiThemeProvider>,
     document.getElementById('root')
   );
 }
