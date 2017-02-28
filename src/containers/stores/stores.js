@@ -7,6 +7,7 @@ import StoreList from '../../components/storelist/storelist';
 
 const mapStateToProps = (state) => ({
   stores: state.stores,
+  highlightedStoreId: 411,
 });
 
 const mapDispatchToProps = {
@@ -50,7 +51,9 @@ class Stores extends Component {
         </div>
         <StoreList
           stores={this.props.stores.stores}
+          highlightedStoreId={this.props.highlightedStoreId}
         />
+        <p>{this.props.highlightedStoreId}</p>
       </div>
     );
   }
@@ -73,6 +76,7 @@ Stores.propTypes = {
   handleMarkerClose: React.PropTypes.func,
   handleMarkerHover: React.PropTypes.func,
   handleMouseOver: React.PropTypes.func,
+  highlightedStoreId: React.PropTypes.number,
 
 };
 

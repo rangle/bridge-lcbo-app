@@ -87,7 +87,6 @@ export function getStores(lat, lon) {
 // adding hover action on marker
 export function handleMouseOver(marker) {
   return function(dispatch) {
-    hoveredStore: marker.name;
     dispatch({
       type: ACTION_TYPES.handleMouseOver,
       payload: {

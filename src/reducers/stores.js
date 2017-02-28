@@ -7,7 +7,7 @@ const INITIAL_STATE = {
   lon: -79.379,
   test: 'pfff',
   stores: [],
-  hoveredStore: '',
+  hoveredStore: '411',
 };
 
 export default function(state = INITIAL_STATE, {type, payload}) {
@@ -34,7 +34,7 @@ export default function(state = INITIAL_STATE, {type, payload}) {
     return state;
 // adding hover reducer on google map marker
   case ACTION_TYPES.handleMouseOver:
-    console.log('hover');
+    state.hoveredStore = payload.marker.id;
     return state;
   }
 }
