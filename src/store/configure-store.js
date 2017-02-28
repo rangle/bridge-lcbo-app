@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware, compose } from 'redux';
+import createDebounce from 'redux-debounced';
 import thunk from 'redux-thunk';
 import { browserHistory } from 'react-router';
 import { routerMiddleware } from 'react-router-redux';
@@ -17,6 +18,7 @@ function configureStore(initialState) {
 function _getMiddleware() {
   let middleware = [
     routerMiddleware(browserHistory),
+    createDebounce(),
     thunk,
   ];
 

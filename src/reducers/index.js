@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import { reducer as formReducer } from 'redux-form';
-import DrinkReducer from './selected-drink';
+import StoreReducer from './stores';
+import NavReducer from './navigation';
 
 const rootReducer = combineReducers({
-  drink: DrinkReducer,
-  form: formReducer,
+  stores: StoreReducer,
   routing: routerReducer,
+  form: formReducer,
+  nav: NavReducer,
 });
 
 export default rootReducer;
