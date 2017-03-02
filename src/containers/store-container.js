@@ -13,10 +13,13 @@ const mapDispatchToProps = {
 };
 
 class Store extends Component {
-  componentDidMount() {
+  componentWillMount() {
     this.props.getStore(411);
   }
 
+  componentDidMount(){
+    
+  }
   render() {
     return (
       <StoreDetails store={this.props.store.store}/>

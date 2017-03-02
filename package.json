@@ -127,6 +127,7 @@
     "url": "https://github.com/rangle/rangle-starter/issues"
   },
   "devDependencies": {
+    "react-hot-loader": "^3.0.0-beta.6",
     "redux-debounce": "^1.0.1"
   }
 }

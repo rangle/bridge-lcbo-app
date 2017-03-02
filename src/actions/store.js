@@ -14,7 +14,6 @@ export function getStore(storeId) {
   const thunk = (dispatch) => {
     stores: $.get(`${LCBO_API_BASE_URL}/stores/${storeId}?${queryString}`).then(
       response => {
-        // console.log('result', responsex/.result);
         dispatch({
           type: ACTION_TYPES.getStore,
           payload: {
@@ -33,4 +32,8 @@ export function getStore(storeId) {
   };
 
   return thunk;
+}
+
+export function formatStore(store){
+  
 }

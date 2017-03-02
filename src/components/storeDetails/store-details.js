@@ -2,14 +2,16 @@ import React from 'react';
 
 
 const StoreDetails = ({store}) => (
-  <ul>
-    {
-      Object.keys(store).map((key) => {
-        <li> {store[key]} </li>;
-        console.log(store[key]);
-      })
-    }
-  </ul>);
+  <div>
+    <h1> {store.name} </h1>
+    <ul key={store.id}>
+      {
+        Object.keys(store).map((key) => {
+          return (<li> {key}: {store[key]} </li>);
+        })
+      }
+    </ul>
+  </div>);
 
 StoreDetails.propTypes = {
   store: React.PropTypes.object,
