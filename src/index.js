@@ -20,7 +20,6 @@ injectTapEventPlugin();
 const store = configureStore({});
 const history = syncHistoryWithStore(browserHistory, store);
 
-
 if (!__TEST__) {
   ReactDOM.render(
     <MuiThemeProvider>
