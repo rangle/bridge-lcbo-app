@@ -91,7 +91,6 @@ export function handleMouseOver(marker) {
       type: ACTION_TYPES.handleMouseOver,
       payload: {
         marker: marker,
-        // store: store,
       },
     });
   };

@@ -7,7 +7,8 @@ const INITIAL_STATE = {
   lon: -79.379,
   test: 'pfff',
   stores: [],
-  hoveredStore: '411',
+  hoveredStore: '',
+  highlightedStoreId: '',
 };
 
 export default function(state = INITIAL_STATE, {type, payload}) {
@@ -32,7 +33,6 @@ export default function(state = INITIAL_STATE, {type, payload}) {
     return {...state, ...{stores: newstores2}};
   default:
     return state;
-// adding hover reducer on google map marker
   case ACTION_TYPES.handleMouseOver:
     state.hoveredStore = payload.marker.id;
     return state;

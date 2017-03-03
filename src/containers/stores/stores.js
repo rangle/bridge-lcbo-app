@@ -7,7 +7,9 @@ import StoreList from '../../components/storelist/storelist';
 
 const mapStateToProps = (state) => ({
   stores: state.stores,
-  highlightedStoreId: 411,
+  highlightedStoreId: state.stores.hoveredStore,
+  // this highlightedStoreId is picked up if we hard coded
+  // why is this container not able to pick up the state that includes hoveredStore?
 });
 
 const mapDispatchToProps = {
@@ -51,10 +53,16 @@ class Stores extends Component {
         </div>
         <StoreList
           stores={this.props.stores.stores}
-          highlightedStoreId={this.props.highlightedStoreId}
         />
         <p>{this.props.highlightedStoreId}</p>
       </div>
+    );
+  }
+  componentWillRecieveProps() {
+    return (
+    <StoreList
+      highlightedStoreId={this.props.highlightedStoreId}
+    />
     );
   }
 }
