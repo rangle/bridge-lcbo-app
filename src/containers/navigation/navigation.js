@@ -8,7 +8,6 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 
 import IconHome from 'material-ui/svg-icons/action/home';
-import IconLoyalty from 'material-ui/svg-icons/action/loyalty';
 
 const mapStateToProps = (state) => ({
   nav: state.nav,
@@ -43,12 +42,6 @@ class Navigation extends Component {
             onTouchTap={this.props.handleClose}
             primaryText="Home"
             leftIcon={<IconHome />}
-          />
-          <MenuItem
-            containerElement={<Link to="/stores" />}
-            onTouchTap={this.props.handleClose}
-            primaryText="Stores"
-            leftIcon={<IconLoyalty />}
           />
         </Drawer>
         {this.props.children}

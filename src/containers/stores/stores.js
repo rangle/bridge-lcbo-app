@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import { getStores, handleMapMounted, handleBoundsChanged, handleMarkerClick, handleMarkerClose } from '../../actions/stores';
 import {connect} from 'react-redux';
+
+import { Grid, Row, Col } from 'react-bootstrap';
+
 import StoreMap from '../../components/storemap/storemap.js';
 import StoreList from '../../components/storelist/storelist';
 
@@ -28,25 +31,31 @@ class Stores extends Component {
 
   render() {
     return (
-      <div>
-        <div id="mapWrapper" style={{float: 'left'}}>
-          <h1>Stores</h1>
-          <StoreMap
-            containerElement={<div style={{ height: '500px', width: '500px' }} /> }
-            mapElement={<div style={{ height: '500px', width: '500px' }} />}
-            onBoundsChanged={this.props.handleBoundsChanged}
-            lat={this.props.stores.lat}
-            lon={this.props.stores.lon}
-            stores={this.props.stores.stores}
-            onMapMounted={this.props.handleMapMounted}
-            onMarkerClick={this.props.handleMarkerClick}
-            onMarkerClose={this.props.handleMarkerClose}
-          />
+      <Grid>
+        <div>
+          <Row>
+            <Col xs={12}><h1>FIND A STORE</h1></Col>
+            <Col xs={12} sm={6} md={5}>
+              <StoreList
+                stores={this.props.stores.stores}
+              />
+            </Col>
+            <Col xs={12} sm={6} md={7}>
+              <StoreMap
+                containerElement={<div style={{ height: '500px', width: '100%' }} /> }
+                mapElement={<div style={{ height: '500px', width: '100%' }} />}
+                onBoundsChanged={this.props.handleBoundsChanged}
+                lat={this.props.stores.lat}
+                lon={this.props.stores.lon}
+                stores={this.props.stores.stores}
+                onMapMounted={this.props.handleMapMounted}
+                onMarkerClick={this.props.handleMarkerClick}
+                onMarkerClose={this.props.handleMarkerClose}
+              />
+            </Col>
+          </Row>
         </div>
-        <StoreList
-          stores={this.props.stores.stores}
-        />
-      </div>
+      </Grid>
     );
   }
 }

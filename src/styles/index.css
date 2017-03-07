@@ -1,2 +1,11 @@
 @import 'tachyons/src/tachyons';
 @import './variables';
+
+p {
+  line-height: 1.4;
+  margin-bottom: 0;
+}
+
+p:last-of-type {
+  margin-bottom: 10px;
+}
