@@ -55,7 +55,6 @@ function formatStoreHours(getState) {
       };
       Object.assign(formatedHours, obj);
     }
-    // return formatedHours;
   });
   return formatedHours;
 }
@@ -63,8 +62,6 @@ export function formatStore() {
   return (dispatch, getState) => {
     const state = getState();
     const formattedHours = formatStoreHours(getState);
-
-    console.log('result', formattedHours);
     const storeInfo = {
       name: state.store.name,
       address: state.store.address_line_1 + ', ' + state.store.city + ', ' + state.store.postal_code,
@@ -90,6 +87,7 @@ export function formatStore() {
       has_transit_access: state.store.has_transit_access,
       updated_at: state.store.updated_at,
     };
+
     dispatch({
       type: ACTION_TYPES.formatStore,
       payload: {
