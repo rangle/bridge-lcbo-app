@@ -2,10 +2,8 @@ import {ACTION_TYPES} from '../actions/stores';
 // import $ from 'jquery';
 
 const INITIAL_STATE = {
-  name: 'Basil Haydens',
   lat: 43.669,
   lon: -79.379,
-  test: 'pfff',
   stores: [],
   hoveredStore: '',
   highlightedStoreId: '',
@@ -13,8 +11,6 @@ const INITIAL_STATE = {
 
 export default function(state = INITIAL_STATE, {type, payload}) {
   switch (type) {
-  case ACTION_TYPES.setStore:
-    return {...state, ...{ test: payload.test}};
   case ACTION_TYPES.getStores:
     return {...state, ...{stores: payload.stores}};
   case ACTION_TYPES.handleBoundsChanged:
@@ -23,6 +19,8 @@ export default function(state = INITIAL_STATE, {type, payload}) {
     return {...state, ...{map: payload.map}};
   case ACTION_TYPES.handleMarkerClick:
     const newstores = state.stores.map(store => (
+      store.showInfo === true ? Object.assign({}, store, {showInfo: false}) : store
+    )).map(store => (
       store.id === payload.marker.id ? Object.assign({}, store, {showInfo: true}) : store
     ));
     return {...state, ...{stores: newstores}};

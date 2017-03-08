@@ -5,22 +5,12 @@ import { buildQueryString } from '../api/helpers';
 
 export const ACTION_TYPES = {
   getStores: 'GET_STORES',
-  setStore: 'SET_STORE',
   handleBoundsChanged: 'BOUNDS_CHANGED',
   handleMapMounted: 'MAP_MOUNTED',
   handleMarkerClick: 'MARKER_CLICKED',
   handleMarkerClose: 'MARKER_CLOSED',
   handleMouseOver: 'MARKER_MOUSEOVER',
 };
-
-export function setStore() {
-  return {
-    type: ACTION_TYPES.setStore,
-    payload: {
-      test: 'test',
-    },
-  };
-}
 
 export function handleMapMounted(map) {
   return {
@@ -68,10 +58,10 @@ export function getStores(lat, lon) {
     access_key: LCBO_API_KEY,
     lat: lat,
     lon: lon,
+    per_page: 5,
     where: 'has_wheelchair_accessability',
   });
-
-  return function(dispatch) {
+  const thunk = (dispatch) => {
     stores: $.get(`${LCBO_API_BASE_URL}/stores?${queryString}`).then(
       response => {
         dispatch({
@@ -83,6 +73,13 @@ export function getStores(lat, lon) {
       },
     );
   };
+  thunk.meta = {
+    debounce: {
+      time: 300,
+      key: 'myAction',
+    },
+  };
+  return thunk;
 }
 // adding hover action on marker
 export function handleMouseOver(marker) {
