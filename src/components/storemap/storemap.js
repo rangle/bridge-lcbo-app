@@ -36,7 +36,7 @@ const StoreMap = withGoogleMap((props) =>
     )) :
       <Marker
         key={props.store.id}
-        position={{lat: 43.6645, lng: -79.3842}}
+        position={{lat: props.lat, lng: props.lon}}
         defaultAnimation={2}
         onClick={() => props.onMarkerClick(props.store)}
       />
