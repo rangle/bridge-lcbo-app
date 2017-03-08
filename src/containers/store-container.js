@@ -8,7 +8,6 @@ import { handleMapMounted, handleBoundsChanged, handleMarkerClick, handleMarkerC
 import StoreMap from '../components/storemap/storemap';
 import StoreDetails from '../components/storeDetails/store-details';
 
-import '../../styles/store-details.css';
 
 const mapStateToProps = (state) => ({
   store: state.store,

@@ -29,6 +29,7 @@ const StoreMap = withGoogleMap((props) =>
         position={{lat: marker.latitude, lng: marker.longitude}}
         defaultAnimation={2}
         onClick={() => props.onMarkerClick(marker)}
+        onMouseOver={() => props.onMouseOver(marker)}
       >
         { marker.showInfo ? infoWindowMaker(marker, props.onMarkerClose) : '' }
       </Marker>
