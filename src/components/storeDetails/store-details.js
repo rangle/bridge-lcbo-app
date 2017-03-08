@@ -8,6 +8,7 @@ const StoreDetails = ({store}) => (
     <h3>{store.name}</h3>
       <p>{store.address}</p>
       <p>{store.telephone}</p>
+
       <Table className="hours-table" striped bordered md={6}>
         <tbody>
         <tr>

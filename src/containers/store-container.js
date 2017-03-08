@@ -22,7 +22,6 @@ const mapDispatchToProps = {
 };
 
 class Store extends Component {
-
   componentWillMount() {
     this.props.getStore(this.props.params.id);
   }

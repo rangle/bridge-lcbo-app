@@ -1,9 +1,12 @@
 import {ACTION_TYPES} from '../actions/stores';
+// import $ from 'jquery';
 
 const INITIAL_STATE = {
   lat: 43.669,
   lon: -79.379,
   stores: [],
+  hoveredStore: '',
+  highlightedStoreId: '',
 };
 
 export default function(state = INITIAL_STATE, {type, payload}) {
@@ -28,5 +31,8 @@ export default function(state = INITIAL_STATE, {type, payload}) {
     return {...state, ...{stores: newstores2}};
   default:
     return state;
+  case ACTION_TYPES.handleMouseOver:
+    return {...state, ...{highlightedStoreId: payload.marker.id}};
+
   }
 }

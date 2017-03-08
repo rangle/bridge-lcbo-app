@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { getStores, handleMapMounted, handleBoundsChanged, handleMarkerClick, handleMarkerClose } from '../../actions/stores';
+import { getStores, handleMapMounted, handleBoundsChanged, handleMarkerClick, handleMarkerClose, handleMouseOver } from '../../actions/stores';
 import {connect} from 'react-redux';
 
 import { Grid, Row, Col } from 'react-bootstrap';
@@ -9,6 +9,7 @@ import StoreList from '../../components/storelist/storelist';
 
 const mapStateToProps = (state) => ({
   stores: state.stores,
+  highlightedStoreId: state.stores.highlightedStoreId,
 });
 
 const mapDispatchToProps = {
@@ -17,6 +18,7 @@ const mapDispatchToProps = {
   handleMapMounted,
   handleMarkerClick,
   handleMarkerClose,
+  handleMouseOver,
 };
 
 class Stores extends Component {
@@ -38,6 +40,7 @@ class Stores extends Component {
             <Col xs={12} sm={6} md={5}>
               <StoreList
                 stores={this.props.stores.stores}
+                highlightedStoreId={this.props.highlightedStoreId}
               />
             </Col>
             <Col xs={12} sm={6} md={7}>
@@ -51,6 +54,7 @@ class Stores extends Component {
                 onMapMounted={this.props.handleMapMounted}
                 onMarkerClick={this.props.handleMarkerClick}
                 onMarkerClose={this.props.handleMarkerClose}
+                onMouseOver={this.props.handleMouseOver}
               />
             </Col>
           </Row>
@@ -75,6 +79,9 @@ Stores.propTypes = {
   handleMapMounted: React.PropTypes.func,
   handleMarkerClick: React.PropTypes.func,
   handleMarkerClose: React.PropTypes.func,
+  handleMarkerHover: React.PropTypes.func,
+  handleMouseOver: React.PropTypes.func,
+  highlightedStoreId: React.PropTypes.number,
 
 
 };
