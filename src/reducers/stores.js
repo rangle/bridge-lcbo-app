@@ -34,7 +34,7 @@ export default function(state = INITIAL_STATE, {type, payload}) {
   default:
     return state;
   case ACTION_TYPES.handleMouseOver:
-    state.hoveredStore = payload.marker.id;
-    return state;
+    return {...state, ...{highlightedStoreId: payload.marker.id}};
+
   }
 }

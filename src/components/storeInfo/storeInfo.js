@@ -1,11 +1,10 @@
 import React from 'react';
 
 const StoreInfo = ({store, highlighted}) =>
-(  <li className = "storeInfo" key = {store.id} style={{background: highlighted === store.id ? 'blue' : 'red'}}>
+(  <li className = "storeInfo" key = {store.id} style={{background: highlighted === store.id ? 'lightblue' : ''}}>
     <p>address: {store.address_line_1} {store.address_line_2}</p>
     <p>distance: {store.distance_in_meters} m</p>
     <p>telephone: {store.telephone}</p>
-    <p>{store.id}</p>
   </li>
 );
 
