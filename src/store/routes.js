@@ -8,7 +8,7 @@ export default (
   <div>
   	<Route path="/" component={ Nav }>
     	<Route path="/stores" component={ Stores }/>
-    	<Route path="/storeDetail" component={ Store }/>
+    	<Route path="/storeDetail/:id" component={ Store }/>
     </Route>
   </div>
 );
