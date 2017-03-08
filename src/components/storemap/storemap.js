@@ -31,18 +31,7 @@ const StoreMap = withGoogleMap((props) =>
         onClick={() => props.onMarkerClick(marker)}
         onMouseOver={() => props.onMouseOver(marker)}
       >
-<<<<<<< HEAD
-        {marker.showInfo ?
-        <InfoWindow
-          onCloseClick={() => props.onMarkerClose(marker)}
-
-        >
-          <div>{marker.name}</div>
-        </InfoWindow> : ''
-        }
-=======
         { marker.showInfo ? infoWindowMaker(marker, props.onMarkerClose) : '' }
->>>>>>> f8bd9e046454d4e74e7a2141bc8729b001aef384
       </Marker>
     )) :
       <Marker

@@ -1,6 +1,6 @@
 import React from 'react';
 import Moment from 'react-moment';
-import { Table, Grid, Row, Col } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 import '../../styles/store-details.css';
 
 const StoreDetails = ({store}) => (
@@ -8,7 +8,7 @@ const StoreDetails = ({store}) => (
     <h3>{store.name}</h3>
       <p>{store.address}</p>
       <p>{store.telephone}</p>
-      
+
       <Table className="hours-table" striped bordered md={6}>
         <tbody>
         <tr>
